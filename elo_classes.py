@@ -13,7 +13,8 @@ class Competitor:
         return hash((self.name, self.school))
 
 
-# used to find unique athletes
+# Used as a class for example.py, and is not relevant to the core algorithm
+
 class Athlete:
     def __init__(self, name, school):
         self.name = name
