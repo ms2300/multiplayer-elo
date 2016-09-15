@@ -1,14 +1,6 @@
 # ELO
 # python 3.4.3
 import math
-import csv
-import json
-import os
-import shutil
-from sys import argv
-from datetime import datetime
-from django.utils.encoding import smart_str, smart_unicode
-from operator import itemgetter
 from elo_classes import *
 
 # Background information - https://en.wikipedia.org/wiki/Elo_rating_system
