@@ -32,7 +32,7 @@ def do_elo(data, meetName, meetDate, gender):
     # Add players to competition and calculate elos
 
     meet = Meet()
-    meet.players = []
+    meet.competitors = []
     for dat in data:
         name = dat[0]
         place = int(dat[1])
@@ -40,23 +40,23 @@ def do_elo(data, meetName, meetDate, gender):
         ath = Athlete(name, school)
         if ath in elos:
             elo = float(elos.get(ath))
-            meet.addPlayer(name, place, elo, school)
+            meet.addCompetitor(name, place, elo, school)
         else:
             # defaults to elo of 1500 on athletes first meet
-            meet.addPlayer(name, place, _DEFELO, school)
-    calculateELOs(meet.players)
+            meet.addCompetitor(name, place, _DEFELO, school)
+    calculateElo(meet.competitors)
 
     # Take results of compeition and append data
 
-    for runner in meet.players:
+    for runner in meet.competitors:
         ather = Athlete(runner.name, runner.school)
-        elos[ather] = runner.eloPost
+        elos[ather] = runner.elo
         if ather in entries:
             res_list = entries.get(ather)
-            res_list.append([meetName, meetDate, runner.eloPost])
+            res_list.append([meetName, meetDate, runner.elo])
             entries[ather] = res_list
         else:
-            entries[ather] = [[meetName, meetDate, runner.eloPost]]
+            entries[ather] = [[meetName, meetDate, runner.elo]]
 
 
 def align_data(filename):

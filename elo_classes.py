@@ -1,11 +1,9 @@
-class ELOPlayer:
-    def __init__(self, name, school, place, eloPre):
+class Competitor:
+    def __init__(self, name, school, place, elo):
         self.name = name
         self.school = school
         self.place = place
-        self.eloPre = eloPre
-    eloPost = None
-    eloChange = 0
+        self.elo = elo
 
     def __eq__(self, other):
         return self.name == other.name and \
@@ -32,11 +30,9 @@ class Athlete:
         return self.name
 
 
-# in conjunction with ELOPlayer
-# calculates elo
 class Meet:
-    players = []
+    competitors = []
 
-    def addPlayer(self, name, place, elo, school):
-        player = ELOPlayer(name, school, place, elo)
-        self.players.append(player)
+    def addCompetitor(self, name, place, elo, school):
+        player = Competitor(name, school, place, elo)
+        self.competitors.append(player)

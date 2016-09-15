@@ -21,14 +21,14 @@ _YMAX = 4.4
 _BASE = 1
 _BUFFEREDELOSLOPE = -.14 / 1300
 _EXPODENTIALRATE = 800
+_WIN = 1.0
+_LOSS = 0.0
 
 
-def calculateELOs(players):
+def calculateElo(players):
     N = len(players)
     # compare every head to head matchup in given meet
     for i in players:
-        curPlace = i.place
-        curELO = i.eloPre
         # changing K multiplier depending on the size of race
         # K multiplier is maximum amount points that can be gained from a win
         if N > _MAXSIZE:
@@ -38,25 +38,20 @@ def calculateELOs(players):
             K = _YMAX - k_slope
         # chaning K multiplier depending on elo of runner
         multi = 1
-        if curELO > _MINBUFFEREDELO and curELO < _MAXBUFFEREDELO:
-            multi = _BASE + (_BUFFEREDELOSLOPE) * (curELO - _MINBUFFEREDELO)
+        if i.elo > _MINBUFFEREDELO and i.elo < _MAXBUFFEREDELO:
+            multi = _BASE + (_BUFFEREDELOSLOPE) * (i.elo - _MINBUFFEREDELO)
         K = multi * K
         for j in players:
             if i is not j:
-                opponentPlace = j.place
-                opponentELO = j.eloPre
                 # S is the player's score - 1 for win - 0 for loss
-                if curPlace < opponentPlace:
-                    S = 1.0
-                elif curPlace == opponentPlace:
-                    S = 0.5
+                if i.place < j.place:
+                    S = _WIN
                 else:
-                    S = 0.0
-                change = opponentELO - curELO
+                    S = _LOSS
+                change = j.elo - i.elo
                 # EA is the expected probability of player winning
                 EA = 1 / (1.0 + math.pow(10.0, (change) / _EXPODENTIALRATE))
-                i.eloChange += K * (S - EA)
-        i.eloPost = i.eloPre + i.eloChange
+                i.elo += K * (S - EA)
         # making it so zero is floor of elo rating
-        if i.eloPost < 0:
-            i.eloPost = 0
+        if i.elo < 0:
+            i.elo = 0
