@@ -39,9 +39,10 @@ def calculateElo(players):
                 else:
                     S = _LOSS
                 change = j.elo - i.elo
-                # EA is the expected score based off each players elo
-                EA = 1 / (1.0 + math.pow(10.0, (change) / _EXPODENTIALRATE))
-                i.elo += K * (S - EA)
-        # Making the rating system's floor be zero and is completely optional
+                # Expected is the expected score based off each players elo
+                expected_score = 1 / \
+                    (1.0 + math.pow(10.0, (change) / _EXPODENTIALRATE))
+                i.elo += K * (S - expected_score)
+        # Making zero be the rating system's floor (optional)
         if i.elo < 0:
             i.elo = 0
