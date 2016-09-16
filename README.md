@@ -44,11 +44,11 @@ Make sure you have django smart_str and smart_unicode installed
 
 I have used this algorithm to effectively rank almost every single high school cross country from the last decade. Running this algorithm with 1,075,214 boy runners, 871,502 girl runners and 197,571 competitions, I produced a mean elo of 1498 for girls and a mean elo of 1499 for boys respectively. In addition, the results seemed to map the desired bell curve pretty darn well.
 
-[boys]: https://github.com/ms2300/multiplayer-elo/img/boysEloHistogram.png "Boys Histogram"
+![alt tag](https://github.com/ms2300/multiplayer-elo/img/boysEloHistogram.png)
 <hr>
-[girls]: https://github.com/ms2300/multiplayer-elo/img/girlsEloHistogram.png "Girls Histogram"
+![alt tag](https://github.com/ms2300/multiplayer-elo/img/girlsEloHistogram.png)
 
 
 Finally, this program graphed history / elo over time for every athlete that I had data on. For instance my graph from time running in high school is shown below.
 
-[results]: https://github.com/ms2300/multiplayer-elo/img/mSewallElo.png "My Elo Graph"
+![alt tag](https://github.com/ms2300/multiplayer-elo/img/mSewallElo.png)
