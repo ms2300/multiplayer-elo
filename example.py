@@ -143,9 +143,12 @@ def write_elo(elos, gender):
 def main():
     # isolates every event and pass that into the do_elo function by gender
     events = align_data(argv[1])
+    count = 0
     for event in events:
         # makes sure there are 4 values of (name, date, gender, and results)
         if len(event) == 4:
+            print count
+            count += 1
             name = smart_str(event[1][0])
             date = event[0]
             gender = event[2]
