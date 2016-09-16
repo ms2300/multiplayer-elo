@@ -24,9 +24,9 @@ This specific variation of the elo ranking system is designed for large multipla
 
 - Competition wide k value now scales linearly downward as the size of the competition grows
 
-- About the top 5% of overall competitors within a system receive lower k values to stabilize ratings on the edge of the bell curve and reduce the potential for elo deflation.
+- About the top 5% of overall competitors within a system receive lower k values to stabilize ratings on the edge of the bell curve and reduce the potential for elo deflation. This had the slight opposite effect of creating small amounts of elo inflation
 
-- Expected score algorithm changed slightly to make an elo difference of 400 points have an expected score of .25 instead of .0909 and .75 instead of .909 respectively.
+- Expected score algorithm changed slightly to make an elo difference of 400 points have an expected score of .25 instead of .0909 and .75 instead of .909 respectively
 
 - Make the floor of an elo ranking be zero
 
@@ -40,15 +40,15 @@ python example.py smallish.json
 Make sure you have django smart_str and smart_unicode installed
 
 
-### Large Scale
+### Large Scale Cross County Meets
 
-I have used this algorithm to effectively rank almost every single high school cross country from the last decade. Running this algorithm with 1,075,214 boy runners, 871,502 girl runners and 197,571 competitions, I produced a mean elo of 1498 for girls and a mean elo of 1499 for boys respectively. In addition, the results seemed to map the desired bell curve pretty darn well.
+I have used this algorithm to effectively rank almost every single high school cross country from the last decade. Running this algorithm with 1,075,214 boy runners, 871,502 girl runners and 197,571 competitions, I produced a mean elo of 1525 for girls and a mean elo of 1528 for boys respectively. In addition, the results seemed to map the desired bell curve pretty darn well.
 
 ![alt tag](https://github.com/ms2300/multiplayer-elo/blob/master/img/boysEloHistogram.png)
 <hr>
 ![alt tag](https://github.com/ms2300/multiplayer-elo/blob/master/img/girlsEloHistogram.png)
 
 
-Finally, this program graphed history / elo over time for every athlete that I had data on. For instance my graph from time running in high school is shown below.
+Finally, this program graphed history / elo over time for every athlete that I had data on. For instance my graph over time running in high school is shown below.
 
 ![alt tag](https://github.com/ms2300/multiplayer-elo/blob/master/img/mattSewallElo.png)
