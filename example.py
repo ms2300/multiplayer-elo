@@ -46,7 +46,7 @@ def do_elo(data, meetName, meetDate, gender):
             meet.addCompetitor(name, place, _DEFELO, school)
     calculateElo(meet.competitors)
 
-    # Take results of compeition and append data
+    # Take results of competition and append data
 
     for runner in meet.competitors:
         ather = Athlete(runner.name, runner.school)
