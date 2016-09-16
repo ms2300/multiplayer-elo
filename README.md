@@ -51,4 +51,4 @@ I have used this algorithm to effectively rank almost every single high school c
 
 Finally, this program graphed history / elo over time for every athlete that I had data on. For instance my graph from time running in high school is shown below.
 
-![alt tag](https://github.com/ms2300/multiplayer-elo/blob/master/img/mSewallElo.png)
+![alt tag](https://github.com/ms2300/multiplayer-elo/blob/master/img/mattSewallElo.png)
