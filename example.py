@@ -1,3 +1,6 @@
+# Copyright (c) 2016 by Matt Sewall.
+# All rights reserved.
+
 import math
 import csv
 import json
